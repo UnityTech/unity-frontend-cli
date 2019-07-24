@@ -1,0 +1,20 @@
+{
+  "files.eol": "\n",
+  "files.encoding": "utf8",
+  "files.trimTrailingWhitespace": false,
+  "files.insertFinalNewline": true,
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "workbench.colorCustomizations": {
+    // statusBar
+    "statusBar.background": "#280068",
+    "statusBar.foreground": "#999",
+    "statusBarItem.activeBackground": "#333",
+    "statusBarItem.hoverBackground": "#333",
+    // titleBar
+    "titleBar.activeBackground": "#280068",
+    "titleBar.inactiveBackground": "#280068",
+    "titleBar.activeForeground": "#999"
+  }
+}
