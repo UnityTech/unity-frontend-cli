@@ -18,32 +18,9 @@ const generateRcFile = (creds) => {
 }
 
 const checkCredentials = async () => {
-    let creds = {};
-    let me;
-    if (!fs.existsSync(path.resolve(process.cwd(), '.npmrc'))) {
-        console.info('    checking credentials...');
-        me = shell.exec(
-            'npm whoami --registry "https://artifactory.internal.unity3d.com/api/npm/libs-web/"', 
-            { silent: true }
-        );
-        
-        if (me.code !== 0) { 
-            console.info(chalk.red(`    Credentials missing
-            `));
-            creds = await prompt.credentialPrompt();
-            generateRcFile(creds);
-            console.info('\n    Your credentials have been saved.');
-        } else if (me.stdout) {
-            console.info(`    Logged in as ${me.stdout}`);
-        } else {
-            console.info('    Invalid user logged in');
-            shell.exit(1);
-        }
-    }
-    return {
-        userName: creds.userName,
-        password: '***********'
-    };
+    await checkRcFile();
+    await whoAmi();
+    return Promise.resolve();
 };
 
 const incrementVersion = async (version) => {
@@ -76,6 +53,39 @@ const publish = async (silent = true) => {
     return Promise.resolve(result);
 }
 
+async function checkRcFile() {
+    let creds = {};
+    if (!fs.existsSync(path.resolve(process.cwd(), '.npmrc'))) {
+      console.info(chalk.yellow(`    Configure Service Account Credentials
+`));
+      creds = await prompt.credentialPrompt();
+      generateRcFile(creds);
+      const command = chalk.green('create-service');
+      console.info(`\n    Your credentials have been saved to ./npmrc but the installation is not complete.
+    Please run ${command} again to apply your credentials.`);
+      shell.exit(0);
+    }
+    return Promise.resolve(0)
+}
+
+async function whoAmi() {
+  me = shell.exec(
+    'npm whoami --registry "https://artifactory.internal.unity3d.com/api/npm/libs-web/"', 
+    { silent: true }
+  );
+  if (me.code !== 0) { 
+      console.info(chalk.red(`    Credentials missing or invalid. 
+    Please check your .npmrc and ensure you have entered the correct service account credentials.
+`));
+      shell.exit(1);
+  } else if (me.stdout) {
+      const prefix = chalk.grey('Logged in as');
+      console.info(`    ${prefix} ${me.stdout}`);
+  } else {
+      console.info('    Invalid user logged in');
+      shell.exit(1);
+  }
+}
 
 module.exports = {
     checkCredentials,

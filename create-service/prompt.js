@@ -1,13 +1,16 @@
 const prompt = require('prompt');
+const path = require('path');
 
+const basename = path.basename( process.cwd() );
 
 const schemas = {
-    initialPrompt: { 
+    packagePrompt: { 
         properties: {
             packageName: {
                 description: 'What would you like to name your service?',
                 type: 'string',
                 pattern: /^(?![0-9]+$)(?!.*-$)(?!-)[a-z][a-z0-9-]{1,63}$/,
+                default: basename,
                 message: 'Name must be at least three charaters long using lower case letters and hyphens.',
                 required: true,
             },
@@ -24,7 +27,7 @@ const schemas = {
     confirmationPrompt: {
         properties: {
             doContinue: {
-                description: 'Continue with deployment? (yes, no)',
+                description: 'Continue creating service? (yes, no)',
                 type: 'string',
                 pattern: /^([yY]|yes|[nN]|no)$/,
                 message: 'You must enter: yes or no',
@@ -81,11 +84,14 @@ const getPrompt = async (schema) => {
 
 
 module.exports = {
-    initialPrompt: () => {
-        return getPrompt(schemas.initialPrompt);
+    packagePrompt: () => {
+        return getPrompt(schemas.packagePrompt);
     },
     confirmationPrompt: () => {
         return getPrompt(schemas.confirmationPrompt);
+    },
+    credentialPrompt: () => {
+        return getPrompt(schemas.credentialPrompt);
     },
     savedSettingsPrompt: () => {
         return getPrompt(schemas.savedSettingsPrompt);
