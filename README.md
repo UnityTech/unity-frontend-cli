@@ -26,6 +26,6 @@ A CLI tool for starting a new service UI for cloud services at Unity.
 
 ### Install your service on the dashboard
 * cd into unityweb-developer-dashboard
-* npm i @testweb/new-service
+* npm i @packagedcomponents/new-service
 * npm run build
 * npm run start-local
