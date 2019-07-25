@@ -56,14 +56,11 @@ const publish = async (silent = true) => {
 async function checkRcFile() {
     let creds = {};
     if (!fs.existsSync(path.resolve(process.cwd(), '.npmrc'))) {
-      console.info(chalk.yellow(`    Configure Service Account Credentials
+      console.info(chalk.yellow(`\n    Configure Service Account Credentials
 `));
       creds = await prompt.credentialPrompt();
       generateRcFile(creds);
-      const command = chalk.green('create-service');
-      console.info(`\n    Your credentials have been saved to ./npmrc but the installation is not complete.
-    Please run ${command} again to apply your credentials.`);
-      shell.exit(0);
+      console.info(`\n    Your credentials have been saved to ./npmrc`);
     }
     return Promise.resolve(0)
 }
