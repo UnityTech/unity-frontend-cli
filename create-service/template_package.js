@@ -1,5 +1,5 @@
 const contents = (options) => `{
-  "name": "${options.scope}/${options.packageName}",
+  "name": "${options.scope}${options.packageName}",
   "version": "0.0.0",
   "description": "${options.description}",
   "main": "src/index.js",
