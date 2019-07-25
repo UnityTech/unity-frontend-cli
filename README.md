@@ -16,6 +16,6 @@ A CLI tool for starting a new service UI for cloud services at Unity.
 * Point to your new repo `cd c:/projects/new-service`
 
 ## Use the CLI to populate your repo
-* Install the CLI globally `npm i -g @testweb/cli`
+* Install the CLI globally `npm i -g unity-frontend-cli
 * Run `create-service`
 * Follow prompts
