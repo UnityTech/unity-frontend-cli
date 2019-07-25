@@ -74,10 +74,7 @@ const getPrompt = async (schema) => {
         prompt.start();
         prompt.get(schema, (err, result) => {
             if (err) throw err;
-            else {
-              result.scope = '@packagedcomponents'
-              resolve(result);
-            }
+            else resolve(result);
         });
     });
 }

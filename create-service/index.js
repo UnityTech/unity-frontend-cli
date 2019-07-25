@@ -10,6 +10,8 @@ const pkg = require('../package');
 const chalk = require('chalk');
 
 
+const DEFAULT_SCOPE = '@packagedcomponents/';
+
 pkgInfo();
 start();
 
@@ -27,6 +29,7 @@ async function start() {
 
   if (!fs.existsSync(packagePath)) {
     const response = await prompt.packagePrompt();
+    response.scope = DEFAULT_SCOPE;
     const txt = templatePackage.build(response);
     fs.writeFileSync(packagePath, txt);
     doContinue = true;
