@@ -29,6 +29,7 @@ async function start() {
     const response = await prompt.packagePrompt();
     const txt = templatePackage.build(response);
     fs.writeFileSync(packagePath, txt);
+    doContinue = true;
   } else {
     console.info(chalk.yellow('This directory already contains a file named package.json\n'));
     const confirm = await prompt.confirmationPrompt();
