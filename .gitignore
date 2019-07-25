@@ -2,3 +2,4 @@ node_modules
 *.bat
 *.orig
 test_*
+.npmrc
