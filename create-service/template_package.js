@@ -29,7 +29,7 @@ const contents = (options) => `{
   },
   "author": "Unity Technologies",
   "devDependencies": {
-    "@packagedcomponents/dev-scripts": "^1.2.15",
+    "@packagedcomponents/dev-scripts": "^1.3.23",
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.3.0",
     "@babel/preset-env": "^7.3.1",
