@@ -8,7 +8,7 @@ const generateRcFile = (creds) => {
     const content = `
 @unity:registry=https://artifactory.eu-cph-1.unityops.net/api/npm/libs-ads
 @unityweb:registry=https://artifactory.internal.unity3d.com/api/npm/libs-web/
-@testweb:registry=https://artifactory.internal.unity3d.com/api/npm/libs-web/
+@packagedcomponents:registry=https://artifactory.internal.unity3d.com/api/npm/libs-web/
 //artifactory.internal.unity3d.com/api/npm/libs-web/:_password=${creds.password}
 //artifactory.internal.unity3d.com/api/npm/libs-web/:username=${creds.userName}
 //artifactory.internal.unity3d.com/api/npm/libs-web/:email=dd-devs@unity3d.com
