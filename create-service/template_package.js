@@ -10,7 +10,7 @@ const contents = (options) => `{
     "storybook": "start-storybook -h dev-developer.cloud.unity3d.com -c .storybook",
     "test": "jest",
     "test:generate-output": "jest --json --outputFile=jest-results.json",
-    "postinstall": "node ./scripts/postinstall.js"
+    "postinstall": "node ./node_modules/@packagedcomponents/dev-scripts/service-init"
   },
   "jest": {
     "setupFiles": [
