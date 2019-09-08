@@ -32,6 +32,7 @@ const contents = (options) => `{
     "@packagedcomponents/dev-scripts": "^1.4.7",
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "@storybook/addon-jest": "^5.0.5",
