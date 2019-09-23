@@ -1,6 +1,6 @@
 {
   "name": "unity-frontend-cli",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "A collection of scripts for setting up new cloud service UI projects.",
   "bin": {
     "web-cli": "./index.js",
