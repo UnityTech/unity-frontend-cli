@@ -8,7 +8,7 @@ const contents = (options) => `{
   },
   "author": "Unity Technologies",
   "devDependencies": {
-    "@packagedcomponents/dev-scripts": "^1.4.9",
+    "@packagedcomponents/dev-scripts": "^1.4.9"
   }
 }
 `;
